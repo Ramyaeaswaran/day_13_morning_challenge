@@ -1,3 +1,4 @@
+
 // Challenge 1
 // Read the two problems below and write test cases for them, make sure test cases run and fail
 
@@ -7,8 +8,18 @@
 // Examples:
 // lengthen("abcdefg", "ab") ➞ "abababa"
 // lengthen("ingenius", "forest") ➞ "forestfo"
+
+
 String lengthen(String word1, String word2){
-  return null;
+  if(word1.length != word2.length){
+    for(int i=0;i<word1.length;i++){
+      word2=word2+word2[i];
+      if(word1.length == word2.length){
+        break;
+      }
+    }
+  }
+  return word2;
 }
 
 // Challenge 3
@@ -19,9 +30,19 @@ String lengthen(String word1, String word2){
 // findBrokenKeys("happy birthday", "hawwy birthday") ➞ ["p"]
 // findBrokenKeys("beethoven", "affthoif5") ➞ ["b", "e", "v", "n"]
 List findBrokenKeys(String correct, String typed){
-  return null;
+  List<String> broken=[];
+  if(correct != typed){
+    for(int i=0;i<correct.length;i++){
+      if(correct[i]!=typed[i] && !broken.contains(correct[i])){
+        broken.add(correct[i]);
+      }
+    }
+  }
+ return broken;
 }
 
 
 main() {
+  print(lengthen("ingenius", "forest"));
+  print(findBrokenKeys("beethoven", "affthoif5"));
 }
